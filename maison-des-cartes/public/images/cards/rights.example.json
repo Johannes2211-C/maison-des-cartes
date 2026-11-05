@@ -1,0 +1,9 @@
+{
+  "_comment": "Copiez ce fichier en rights.json. Un produit n'est publié en production que si son visuel (public/images/cards/<id>.webp) ET une entrée ici existent. Ce fichier n'est jamais servi au public.",
+  "steam": {
+    "source": "Kit média fourni par votre distributeur agréé (ex. contrat revendeur n°…)",
+    "license": "Utilisation autorisée pour la revente des cartes Steam — accord revendeur du JJ/MM/AAAA",
+    "verifiedBy": "Nom de la personne responsable",
+    "date": "2026-11-05"
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "currency": "EUR",
+  "selector": { "min": 20, "max": 100, "step": 1, "quickValues": [20, 30, 40, 50, 60, 70, 80, 90, 100] },
+  "categories": [
+    { "id": "gaming", "name": "Gaming", "aisle": 1, "tagline": "Consoles, PC et boutiques de jeux" },
+    { "id": "apple-google", "name": "Apple & Google", "aisle": 2, "tagline": "Applications, musique et services mobiles" },
+    { "id": "divertissement", "name": "Divertissement", "aisle": 3, "tagline": "Séries, films et musique en streaming" },
+    { "id": "shopping", "name": "Shopping", "aisle": 4, "tagline": "Grandes enseignes et bons d’achat" },
+    { "id": "services", "name": "Services numériques", "aisle": 5, "tagline": "Logiciels, outils et crédits numériques" }
+  ],
+  "products": [
+    {
+      "id": "steam",
+      "name": "Carte Steam",
+      "brand": "Valve · Steam",
+      "category": "gaming",
+      "description": "Créditez un portefeuille Steam en euros pour acheter jeux, extensions, logiciels et objets sur la plateforme Steam.",
+      "region": "Comptes Steam en euros (zone euro)",
+      "terms": [
+        "Nécessite un compte Steam libellé en euros.",
+        "Activation en ligne soumise à l’accord de souscription Steam.",
+        "Non échangeable contre des espèces."
+      ],
+      "amounts": { "type": "fixed", "values": [20, 25, 30, 50, 100] },
+      "image": "steam",
+      "sources": ["https://bitrefill.com/buy/steam-eur-international", "https://startselect.com/fr-fr/cartes-cadeaux/cartes-steam"],
+      "toConfirm": true
+    },
+    {
+      "id": "playstation",
+      "name": "Carte PlayStation Store",
+      "brand": "Sony Interactive Entertainment",
+      "category": "gaming",
+      "description": "Ajoutez du crédit à votre portefeuille PlayStation Store pour acheter jeux, contenus additionnels et abonnements PlayStation Plus.",
+      "region": "Comptes PlayStation Network France",
+      "terms": [
+        "Utilisable uniquement avec un compte PlayStation Network enregistré en France.",
+        "Le crédit est ajouté au portefeuille du compte et n’est pas remboursable.",
+        "Conditions d’utilisation du PlayStation Network applicables."
+      ],
+      "amounts": { "type": "fixed", "values": [20, 30, 40, 50, 60, 70, 80, 100] },
+      "image": "playstation",
+      "sources": ["https://startselect.com/fr-fr/cartes-cadeaux/cartes-playstation-store"],
+      "toConfirm": false
+    },
+    {
+      "id": "xbox",
+      "name": "Carte cadeau Xbox",
+      "brand": "Microsoft · Xbox",
+      "category": "gaming",
+      "description": "Achetez jeux, extensions, films et applications sur le Microsoft Store et le Xbox Store, ou réglez un abonnement Game Pass.",
+      "region": "Comptes Microsoft France",
+      "terms": [
+        "À utiliser sur un compte Microsoft dont la région correspond à la carte.",
+        "Le solde est crédité sur le compte Microsoft.",
+        "Non remboursable, non échangeable contre des espèces."
+      ],
+      "amounts": { "type": "fixed", "values": [25, 50, 100] },
+      "image": "xbox",
+      "sources": ["https://dundle.com/fr/en/xbox"],
+      "toConfirm": false
+    },
+    {
+      "id": "nintendo",
+      "name": "Carte Nintendo eShop",
+      "brand": "Nintendo",
+      "category": "gaming",
+      "description": "Crédit à utiliser sur le Nintendo eShop pour télécharger jeux et contenus sur Nintendo Switch.",
+      "region": "Comptes Nintendo eShop en euros",
+      "terms": [
+        "Valable uniquement sur le Nintendo eShop.",
+        "Code à 16 caractères à saisir dans le Nintendo eShop ou sur ec.nintendo.com/redeem.",
+        "Non remboursable ni échangeable."
+      ],
+      "amounts": { "type": "fixed", "values": [25, 50, 75, 100] },
+      "image": "nintendo",
+      "sources": ["https://www.egifter.com/en-fr/giftcards/nintendo-eshop-gift-card", "https://embed.bitrefill.com/vg/en/gift-cards/nintendo-france"],
+      "toConfirm": false
+    },
+    {
+      "id": "apple",
+      "name": "Carte cadeau Apple",
+      "brand": "Apple",
+      "category": "apple-google",
+      "description": "Une seule carte pour l’App Store, iTunes, Apple Music, iCloud+, les produits et accessoires Apple. Montant libre.",
+      "region": "France uniquement",
+      "terms": [
+        "Utilisable uniquement en France.",
+        "À ajouter au solde du compte Apple via apple.com/redeem ou à présenter en Apple Store.",
+        "Non échangeable contre des espèces."
+      ],
+      "amounts": { "type": "variable", "min": 20, "max": 100, "step": 1 },
+      "image": "apple",
+      "sources": ["https://startselect.com/fr-fr/variable-apple-gift-card-envoi-par-e-mail/67450"],
+      "toConfirm": false
+    },
+    {
+      "id": "app-store-itunes",
+      "name": "Carte App Store & iTunes",
+      "brand": "Apple",
+      "category": "apple-google",
+      "description": "Les cartes App Store & iTunes ont été remplacées en France par la carte cadeau Apple, qui reste utilisable sur l’App Store et iTunes. Cette fiche propose la version à montant fixe.",
+      "region": "France uniquement",
+      "terms": [
+        "Carte cadeau Apple utilisable sur l’App Store, iTunes et Apple Music.",
+        "Utilisable uniquement en France.",
+        "Non échangeable contre des espèces."
+      ],
+      "amounts": { "type": "fixed", "values": [25, 50, 100] },
+      "image": "app-store-itunes",
+      "sources": ["https://www.mac4ever.com/mac/171803-la-carte-cadeau-apple-universelle-est-disponible-en-france-et-en-suisse-mais-pas-en-belgique"],
+      "toConfirm": true
+    },
+    {
+      "id": "google-play",
+      "name": "Carte Google Play",
+      "brand": "Google",
+      "category": "apple-google",
+      "description": "Applications, jeux, films, livres et abonnements sur Google Play. Montant libre.",
+      "region": "France, en euros",
+      "terms": [
+        "Utilisable uniquement dans le pays et la devise d’achat (France, EUR).",
+        "Le pays du compte Google Play doit être la France.",
+        "Non remboursable et non transférable, sauf obligation légale."
+      ],
+      "amounts": { "type": "variable", "min": 20, "max": 100, "step": 1 },
+      "image": "google-play",
+      "sources": ["https://support.google.com/googleplay/answer/3422734?hl=fr"],
+      "toConfirm": false
+    },
+    {
+      "id": "netflix",
+      "name": "Carte cadeau Netflix",
+      "brand": "Netflix",
+      "category": "divertissement",
+      "description": "Créditez un compte Netflix : le montant est déduit des prochaines mensualités d’abonnement.",
+      "region": "Comptes Netflix France",
+      "terms": [
+        "Le crédit est déduit des factures d’abonnement à venir.",
+        "Utilisable sur un compte Netflix de la même région.",
+        "Non échangeable contre des espèces."
+      ],
+      "amounts": { "type": "fixed", "values": [25, 50] },
+      "image": "netflix",
+      "sources": ["https://www.ariase.com/streaming/actualite/carte-cadeau-netflix-auchan-micromania"],
+      "toConfirm": true
+    },
+    {
+      "id": "spotify",
+      "name": "Carte cadeau Spotify",
+      "brand": "Spotify AB",
+      "category": "divertissement",
+      "description": "Offrez des mois de Spotify Premium Individuel : musique et podcasts sans publicité, hors connexion.",
+      "region": "Comptes Spotify France",
+      "terms": [
+        "Valable uniquement pour des mois Premium Individuel au tarif standard (hors offres Étudiants, Famille, Duo).",
+        "À activer sur spotify.com/redeem dans les 12 mois suivant l’achat.",
+        "Compte Spotify du pays d’achat requis."
+      ],
+      "amounts": { "type": "fixed", "values": [30, 60] },
+      "image": "spotify",
+      "sources": ["https://www.spotify.com/fr/gift-card/"],
+      "toConfirm": true
+    },
+    {
+      "id": "amazon",
+      "name": "Carte cadeau Amazon.fr",
+      "brand": "Amazon",
+      "category": "shopping",
+      "description": "Des millions d’articles sur Amazon.fr, utilisable en plusieurs fois et pour l’abonnement Amazon Prime.",
+      "region": "Amazon.fr uniquement",
+      "terms": [
+        "Utilisable uniquement sur Amazon.fr (amazon.fr/cheques-cadeaux).",
+        "Peut servir en plusieurs fois jusqu’à épuisement du solde.",
+        "Certains vendeurs tiers peuvent ne pas l’accepter."
+      ],
+      "amounts": { "type": "fixed", "values": [20, 50, 100] },
+      "image": "amazon",
+      "sources": ["https://bitrefill.com/fr/en/gift-cards/amazon_fr-france"],
+      "toConfirm": false
+    },
+    {
+      "id": "fnac-darty",
+      "name": "E-carte cadeau Fnac Darty",
+      "brand": "Fnac Darty",
+      "category": "shopping",
+      "description": "Culture, high-tech et électroménager dans les magasins Fnac et Darty et sur fnac.com. Montant libre.",
+      "region": "France métropolitaine",
+      "terms": [
+        "Valable 12 mois à compter de son activation.",
+        "Utilisable en une ou plusieurs fois, cumulable avec un autre moyen de paiement.",
+        "Hors cartes cadeaux, téléchargements et Marketplace."
+      ],
+      "amounts": { "type": "variable", "min": 20, "max": 100, "step": 1 },
+      "image": "fnac-darty",
+      "sources": ["https://www.egifter.com/en-fr/giftcards/fnac-darty-gift-card"],
+      "toConfirm": false
+    },
+    {
+      "id": "zalando",
+      "name": "Carte cadeau Zalando",
+      "brand": "Zalando",
+      "category": "shopping",
+      "description": "Mode, chaussures et accessoires de milliers de marques sur Zalando.fr.",
+      "region": "Zalando.fr",
+      "terms": [
+        "Utilisable sur zalando.fr.",
+        "Conditions des cartes cadeaux Zalando applicables.",
+        "Non échangeable contre des espèces."
+      ],
+      "amounts": { "type": "fixed", "values": [50, 100] },
+      "image": "zalando",
+      "sources": ["https://startselect.com/be-fr/cartes-cadeaux/bons-cadeaux-zalando"],
+      "toConfirm": true
+    },
+    {
+      "id": "microsoft-365-basic",
+      "name": "Microsoft 365 Basic · 1 an",
+      "brand": "Microsoft",
+      "category": "services",
+      "description": "100 Go de stockage OneDrive et Outlook sans publicité pendant 12 mois.",
+      "region": "Zone euro",
+      "terms": [
+        "Code d’abonnement 12 mois à activer sur microsoft365.com/setup.",
+        "Un compte Microsoft est requis.",
+        "Non remboursable après activation."
+      ],
+      "amounts": { "type": "fixed", "values": [20] },
+      "image": "microsoft-365-basic",
+      "sources": [],
+      "toConfirm": true
+    },
+    {
+      "id": "microsoft-365-personnel",
+      "name": "Microsoft 365 Personnel · 1 an",
+      "brand": "Microsoft",
+      "category": "services",
+      "description": "Word, Excel, PowerPoint, Outlook et 1 To OneDrive pour une personne pendant 12 mois.",
+      "region": "Zone euro",
+      "terms": [
+        "Code d’abonnement 12 mois à activer sur microsoft365.com/setup.",
+        "Un compte Microsoft est requis.",
+        "Non remboursable après activation."
+      ],
+      "amounts": { "type": "fixed", "values": [99] },
+      "image": "microsoft-365-personnel",
+      "sources": [],
+      "toConfirm": true
+    }
+  ]
+}

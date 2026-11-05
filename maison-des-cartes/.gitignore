@@ -1,0 +1,5 @@
+node_modules/
+.env
+data/*.sqlite*
+public/images/cards/rights.json
+*.csv

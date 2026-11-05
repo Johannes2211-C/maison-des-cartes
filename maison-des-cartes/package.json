@@ -1,0 +1,17 @@
+{
+  "name": "maison-des-cartes",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Maison des Cartes — boutique immersive 3D de cartes cadeaux numériques (Three.js + PayPal JS SDK)",
+  "type": "module",
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "start": "node --no-warnings=ExperimentalWarning server/index.js",
+    "dev": "node --no-warnings=ExperimentalWarning --watch server/index.js",
+    "check:images": "node --no-warnings=ExperimentalWarning server/scripts/check-images.js",
+    "codes:import": "node --no-warnings=ExperimentalWarning server/scripts/import-codes.js",
+    "textures": "python3 server/scripts/generate-textures.py",
+    "test": "node --no-warnings=ExperimentalWarning --test tests/*.test.js"
+  },
+  "license": "UNLICENSED"
+}

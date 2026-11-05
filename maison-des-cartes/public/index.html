@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Maison des Cartes — cartes cadeaux numériques</title>
+  <meta name="description" content="Toutes vos cartes cadeaux préférées, au même endroit. Visitez notre boutique en 3D ou parcourez le catalogue, choisissez votre montant et payez avec PayPal.">
+  <meta name="theme-color" content="#2e2f31">
+  <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="/css/main.css">
+  <script type="importmap">{"imports":{"three":"/vendor/three/three.module.js"}}</script>
+  <link rel="modulepreload" href="/vendor/three/three.module.js">
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <header class="site-header" id="site-header">
+    <a class="brand" href="/" data-link aria-label="Maison des Cartes — accueil">
+      <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="9" width="24" height="17" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.4" transform="rotate(-8 17 17)"/><rect x="11" y="14" width="24" height="17" rx="2.2" fill="currentColor" opacity=".9"/><path d="M16 27v-8.4l3.4 4.6 3.4-4.6V27" fill="none" stroke="var(--c-paper)" stroke-width="1.3"/></svg>
+      <span class="brand__name">Maison des Cartes</span>
+    </a>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <a href="/boutique" data-link data-nav="store">Boutique</a>
+      <a href="/catalogue" data-link data-nav="catalog">Catalogue</a>
+      <div class="nav-menu">
+        <button class="nav-menu__toggle" aria-expanded="false" aria-controls="cat-menu">Catégories</button>
+        <div class="nav-menu__panel" id="cat-menu" hidden></div>
+      </div>
+    </nav>
+    <form class="search" role="search" id="search-form">
+      <label class="visually-hidden" for="search-input">Rechercher une carte</label>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M13 13l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <input id="search-input" type="search" placeholder="Steam, Netflix, Amazon…" autocomplete="off" enterkeyhint="search">
+    </form>
+    <button class="cart-button" id="cart-button" aria-controls="cart-drawer" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3L5 8Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      <span class="cart-button__label">Panier</span>
+      <span class="cart-button__count" id="cart-count" aria-live="polite">0</span>
+    </button>
+  </header>
+
+  <main id="main">
+    <!-- BOUTIQUE 3D -->
+    <section class="view view--store" id="view-store" aria-label="Boutique en 3D">
+      <div class="store-stage" id="store-stage">
+        <div class="store-loader" id="store-loader" role="status">
+          <div class="store-loader__bar"><span id="store-loader-bar"></span></div>
+          <p id="store-loader-text">Ouverture de la boutique…</p>
+        </div>
+        <div class="facade-hero" id="facade-hero">
+          <h1>Toutes vos cartes cadeaux préférées, au même endroit.</h1>
+          <p>Découvrez notre sélection de cartes cadeaux numériques et trouvez facilement celle qui vous correspond.</p>
+          <div class="facade-hero__actions">
+            <button class="btn btn--primary" id="enter-store">Entrer dans la boutique</button>
+            <a class="btn btn--ghost-light" href="/catalogue" data-link>Explorer le catalogue</a>
+          </div>
+        </div>
+        <div class="store-hud" id="store-hud">
+          <div class="aisle-jump" id="aisle-jump" aria-label="Aller à un rayon"></div>
+          <a class="btn btn--glass" href="/catalogue" data-link>Passer au catalogue</a>
+        </div>
+        <div class="store-hint" id="store-hint" hidden>
+          <p class="store-hint__desktop">Glissez pour regarder · ZQSD ou flèches pour avancer · cliquez sur une carte pour la découvrir</p>
+          <p class="store-hint__touch">Glissez pour regarder · joystick pour avancer · touchez une carte ou le sol</p>
+        </div>
+        <div class="store-tooltip" id="store-tooltip" hidden></div>
+        <div class="joystick" aria-hidden="true"><div class="joystick__knob"></div></div>
+      </div>
+    </section>
+
+    <!-- CATALOGUE -->
+    <section class="view view--catalog" id="view-catalog" hidden aria-labelledby="catalog-title">
+      <div class="catalog-head">
+        <h1 id="catalog-title">Catalogue</h1>
+        <p class="catalog-head__lead">Choisissez votre carte, puis le montant qui vous convient.</p>
+        <div class="filters" id="filters" role="tablist" aria-label="Filtrer par catégorie"></div>
+        <p class="catalog-status" id="catalog-status" aria-live="polite"></p>
+      </div>
+      <div class="catalog-body" id="catalog-body"></div>
+    </section>
+
+    <!-- COMMANDE -->
+    <section class="view view--order" id="view-order" hidden aria-live="polite"></section>
+
+    <!-- PAGES -->
+    <section class="view view--page" id="view-page" hidden></section>
+  </main>
+
+  <footer class="site-footer" id="site-footer" hidden>
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <p class="site-footer__name">Maison des Cartes</p>
+        <p>Cartes cadeaux numériques, livrées par e-mail après confirmation du paiement.</p>
+      </div>
+      <nav aria-label="Boutique">
+        <p class="site-footer__title">Boutique</p>
+        <a href="/boutique" data-link>Visiter la boutique</a>
+        <a href="/catalogue" data-link>Catalogue</a>
+        <a href="/aide" data-link>Comment ça marche</a>
+      </nav>
+      <nav aria-label="Informations">
+        <p class="site-footer__title">Informations</p>
+        <a href="/conditions" data-link>Conditions générales de vente</a>
+        <a href="/mentions-legales" data-link>Mentions légales</a>
+      </nav>
+      <div>
+        <p class="site-footer__title">Paiement</p>
+        <p>Paiement sécurisé par PayPal. Aucune donnée bancaire n’est traitée par notre site.</p>
+      </div>
+    </div>
+    <p class="site-footer__legal">Les marques et visuels de cartes appartiennent à leurs propriétaires respectifs.</p>
+  </footer>
+
+  <!-- FICHE PRODUIT -->
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="sheet" id="product-sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" hidden>
+    <button class="icon-btn sheet__close" data-close aria-label="Fermer la fiche">
+      <svg viewBox="0 0 20 20"><path d="M5 5l10 10M15 5 5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <div class="sheet__scroll" id="sheet-content"></div>
+  </aside>
+
+  <!-- PANIER -->
+  <aside class="drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+    <div class="drawer__head">
+      <h2 id="cart-title">Votre panier</h2>
+      <button class="icon-btn" data-close aria-label="Fermer le panier">
+        <svg viewBox="0 0 20 20"><path d="M5 5l10 10M15 5 5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="drawer__body" id="cart-body"></div>
+    <div class="drawer__foot" id="cart-foot"></div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
